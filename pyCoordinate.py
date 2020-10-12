@@ -59,8 +59,14 @@ class solve():
         for i in range(len(self.eq1)):
             for j in range(len(self.eq2)):    
                 temp_x = sympy.Eq(self.eq1[i], self.eq2[j])
-                print(temp_x)
                 temp_x = sympy.solve(temp_x)
                 self.x = self.x + temp_x
                 
         self.y = list(map(lambda x : self.eq1[0].subs({x:self.x}), self.x))
+        self.points = list(zip(self.x, self.y))
+
+    def __repr__(self):
+        rep = 'Intersection Points : \n'
+        for i in range(len(self.points)):
+            rep = rep + str(self.points[i]) + '\n'
+        return rep
