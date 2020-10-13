@@ -70,3 +70,18 @@ class solve():
         for i in range(len(self.points)):
             rep = rep + str(self.points[i]) + '\n'
         return rep
+
+class ConicSection():
+
+    def __init__(self, A,B,C,D,E,F):
+
+        self.A = A
+        self.B = B
+        self.C = C
+        self.D = D
+        self.E = E
+        self.F = F
+        self.eq = self.A*x**2 + self.B*x*y + self.C*y**2 + self.D*x + self.E*y + self.F
+
+    def __repr__(self):
+        return str(self.eq)
