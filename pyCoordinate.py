@@ -85,3 +85,24 @@ class ConicSection():
 
     def __repr__(self):
         return str(self.eq)
+
+    def ecc(self):
+
+        e = self.B**2 - 4*self.A*self.C
+        return e
+
+    def conicType(self):
+
+        e = self.ecc()
+
+        if e == 0:
+            conic_type = 'Parabola'
+        elif e < 0:
+            if self.A == self.C:
+                conic_type = 'Circle'
+            else:
+                conic_type = 'Elipse'
+        elif e > 0:
+            conic_type = 'Hyperbola'
+
+        return conic_type
